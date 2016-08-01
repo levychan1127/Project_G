@@ -25,7 +25,8 @@ public class TimerManager : MonoBehaviour
 			lastTime = Time.time;
 		}
 		*/
-        foreach(Timer t in Timer.timerList)
+	ArrayList tempList = Timer.timerList;
+        foreach(Timer t in arrayList)
         {
             if (t.isTicking)
             {
@@ -36,7 +37,7 @@ public class TimerManager : MonoBehaviour
                     t.isTicking = false;
                     t.End();
                     Timer.timerList.Remove(this);
-                    break;
+                    //break;
                 }
             }
         }
