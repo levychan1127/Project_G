@@ -47,7 +47,7 @@ public class Timer
     /// <summary>
     /// Update Time
     /// </summary>
-    /*public void Update(float deltaTime)
+    public void Update(float deltaTime)
     {
         if (isTicking)
         {
@@ -57,15 +57,9 @@ public class Timer
             {
                 isTicking = false;
                 timerList.Remove(this);
-                
+                trig();
             }
         }
-    }
-    */
-
-    public void End()
-    {
-        trig();
     }
 
     /// <summary>

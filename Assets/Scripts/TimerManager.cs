@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TimerManager : MonoBehaviour
 {
+    private Timer[] tempList;
     // Use this for initialization
     void Start()
     {
@@ -25,20 +26,13 @@ public class TimerManager : MonoBehaviour
 			lastTime = Time.time;
 		}
 		*/
-	ArrayList tempList = Timer.timerList;
-        foreach(Timer t in arrayList)
+        if (Timer.timerList.Count > 0)
         {
-            if (t.isTicking)
+            tempList = new Timer[Timer.timerList.Count];
+            Timer.timerList.CopyTo(tempList);
+            for (int i = 0; i < tempList.Length; i++)
             {
-                t.curTime += Time.deltaTime;
-
-                if (t.curTime > t.triggerTime)
-                {
-                    t.isTicking = false;
-                    t.End();
-                    Timer.timerList.Remove(this);
-                    //break;
-                }
+                tempList[i].Update(Time.deltaTime);
             }
         }
     }
