@@ -5,21 +5,22 @@ public class Timer
 {
     public static ArrayList timerList = new ArrayList();
 
-
     //If the Timer is running 
-    public bool isTicking;
+    private bool isTicking;
 
     //Current time
-    public float curTime;
+    private float curTime;
 
     //Time to reach
-    public float triggerTime;
+    private float triggerTime;
 
     //Use delegate to hold the methods
     public delegate void EventHandler();
 
     //The trigger event list
     public event EventHandler trig;
+
+    //public event EventHandler startTrig;
 
     /// <summary>
     /// Init
@@ -42,6 +43,7 @@ public class Timer
             timerList.Add(this);
         }        
         isTicking = true;
+        //startTrig();
     }
 
     /// <summary>

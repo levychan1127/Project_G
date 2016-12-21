@@ -2,31 +2,19 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class GlobalFunc
-{
-    //通用的UI切换方法
-    public static GameObject ChangeUI(GameObject gameObject, string targetUIName)
-    {
-        GameObject root = GameObject.Find("Canvas");
-        if (root != null)
-        {
-            GameObject targetUI = root.transform.Find(targetUIName).gameObject;
-            if (targetUI != null)
-            {
-                gameObject.SetActive(false);
-                targetUI.SetActive(true);
-                return targetUI;
-            }
-        } 
-        return null; 
-    }
-}
 
 public class MainUI : MonoBehaviour {
 
+    private GameObject player;
+    private PlayerAttribute playerAttr;
     // Use this for initialization
     void Start () {
         //LoadClick();
+        player = GameObject.Find("Player");
+        if (player)
+        {
+            playerAttr = player.GetComponent<PlayerAttribute>();
+        }
     }
 	
 	// Update is called once per frame
@@ -36,7 +24,13 @@ public class MainUI : MonoBehaviour {
 
     public void LevelUpClick()
     {
-        PlayerAttribute.LevelUpCheck();
+        playerAttr.LevelUpCheck();
+    }
+
+    public void TrainingClick()
+    {
+        ActivityManager.ActivityInit(ActivityManager.E_ActivityType.eTraining);
+        //GameObject button = gameObject.transform.Find("Training").gameObject;
     }
 
     public void SaveClick()
@@ -49,12 +43,17 @@ public class MainUI : MonoBehaviour {
     {
         GameDataManager gameDataManager = gameObject.AddComponent<GameDataManager>();
         gameDataManager.Load();
-        PlayerAttribute.level = gameDataManager.gameData.PlayerLevel;
-        PlayerAttribute.RefreshAttribute();
+        playerAttr.level = gameDataManager.gameData.PlayerLevel;
+        playerAttr.RefreshAttribute();
+    }
+
+    public void SleepingClick()
+    {
+        ActivityManager.ActivityInit(ActivityManager.E_ActivityType.eSleeping);
     }
 
     public void OpenAttributeUI()
     {
-        GlobalFunc.ChangeUI(gameObject, "AttributeUI");
+        UIManager.ChangeUI(gameObject, "AttributeUI");
     }
 }

@@ -15,9 +15,11 @@ public class GameData
     //下面是添加需要储存的内容//
     public int PlayerLevel;
     public float MusicVolume;
+    private static GameObject player = GameObject.Find("Player");
+    private static PlayerAttribute playerAttr = player.GetComponent<PlayerAttribute>();
     public GameData()
     {
-        PlayerLevel = PlayerAttribute.level;
+        PlayerLevel = playerAttr.level;
         MusicVolume = 0.6f;
     }
 }

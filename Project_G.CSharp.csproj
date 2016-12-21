@@ -75,10 +75,13 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\GameDataManager.cs" />
     <Compile Include="Assets\Scripts\MainUI.cs" />
+    <Compile Include="Assets\Scripts\MessageManager.cs" />
+    <Compile Include="Assets\Scripts\Messenger.cs" />
     <Compile Include="Assets\Scripts\PlayerAttribute.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\TimerManager.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\XmlSaver.cs" />
   </ItemGroup>
   <ItemGroup>

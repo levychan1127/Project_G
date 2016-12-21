@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         if (stateChangeTimer > 3.0f)
         {            
-            animator.SetTrigger("fight");
             stateChangeTimer = 0;
         }
         stateChangeTimer += Time.deltaTime;
